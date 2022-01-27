@@ -1,0 +1,253 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Projeto Backend DevInhouse - Conta365",
+    "description": "Projeto avaliativo de API com node.js (Curso DevInHouse)",
+    "version": "1.0.0"
+  },
+  "host": "localhost:4444",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "EndPoints for Users"
+        ],
+        "description": "Acessa e retorna as informações de <b>TODOS</b> os usúarios",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/user/{id}": {
+      "get": {
+        "tags": [
+          "EndPoints for Users"
+        ],
+        "description": "Acessa e retorna as informações de <b>UM</b> usúario pelo <b>ID</b>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/userCreate": {
+      "post": {
+        "tags": [
+          "EndPoints for Users"
+        ],
+        "description": "End point para <b>criação</b> de usuários. O id do usúario é gerado automaticamente",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Claudio Rhenns"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "rhenns-teste@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/userUpdate/{id}": {
+      "patch": {
+        "tags": [
+          "EndPoints for Users"
+        ],
+        "description": "End point para <b>atualização</b> de dados dos usuários. <b>O id NÃO pode ser alterado</b>, mas deve ser informado para que o usúario seja enconrado. Atualiza <b>UM</b> usúario por vez. Só aceita os campos que ja existe na estrutura do objeto",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "Claudio Rhenns"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "rhenns-teste@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/userDelete/{id}": {
+      "delete": {
+        "tags": [
+          "EndPoints for Users"
+        ],
+        "description": "Acessa e deleta <b>UM</b> usúario através de seu <b>ID</b>",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/financial": {
+      "get": {
+        "tags": [
+          "EndPoints for FinancialAccounts"
+        ],
+        "description": "Acessa e retorna as informações de <b>TODAS</b> as contas financeiras do banco",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/financial/{userId}": {
+      "get": {
+        "tags": [
+          "EndPoints for FinancialAccounts"
+        ],
+        "description": "Acessa e retorna as informações de <b>UMA</b> conta financeira do banco através do <b>ID do usúario</b>",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "EndPoints for FinancialAccounts"
+        ],
+        "description": "Acessa uma planilha com <b>extensão xlsx</b> e importa as transações financeiras para <b>UM</b> usúario informado no endpoint",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "required": true,
+            "description": "Arquivo com transações financeiras..."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/v1/financial/{userId}/{financialId}": {
+      "delete": {
+        "tags": [
+          "EndPoints for FinancialAccounts"
+        ],
+        "description": "Acessa uma conta financeira com base no <b>Id do Usuário</b> e <b>DELETA</b> a transação financeira com base no <b>Id da transação</b>",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "financialId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  }
+}

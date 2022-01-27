@@ -1,0 +1,47 @@
+[{
+  "id": 1001,
+  "userId": 1,
+  "financialData": [{
+                    "id": 1,
+                    "price": 700,
+                    "typesOfExpenses": "moradia",
+                    "date": "2022-01-01",
+                    "name": "Custo com aluguel ref mes de janeiro"
+                    },
+                    {
+                      "id": 2,
+                      "price": 400,
+                      "typesOfExpenses": "alimentação",
+                      "date": "2022-01-05",
+                      "name": "Custo com alimentação ref mes de janeiro"
+                   },
+                   {
+                    "id": 3,
+                    "price": 120,
+                    "typesOfExpenses": "internet",
+                    "date": "2022-01-07",
+                    "name": "Custo com mensalidade da internet ref mes de janeiro"
+                  }
+
+                  ]
+},
+{
+  "id": 1002,
+  "userId": 2,
+  "financialData": [
+                   
+
+                  ]
+},
+
+{
+  "id": 1003,
+  "userId": 3,
+  "financialData": [
+                   
+
+                  ]
+}
+
+
+]
