@@ -87,9 +87,9 @@ A tabela abaixo exemplifica os Endpoints utilizados para listar, adicionar gasto
 ### Observação
 Para testar o endpoint POST das contas financeiras, é necessário enviar uma **planilha na extensão xlsx**. Esta planilha deve conter os campos **price, typeOfExpenses,date e name**. Para facilitar o teste de funcionamento da API, estou disponibilizando uma planilha com alguns valores já preenchidos e que pode ser baixada no link abaixo:
 
-~~~~
+
 https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/database.xlsx
-~~~~
+
 
 ![autor](https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/footer.jpg)
 
