@@ -78,10 +78,17 @@ module.exports = {
        
         filterRows.map((row)=>{
             const result = row.map((itemRow, index)=>{
-                return {
-                    [firstRow[index]]: itemRow ? itemRow : ''
-                }
-            })
+                if(firstRow[index] == "date"){
+                return {                   
+                    [firstRow[index]]: itemRow ? xlsxPopulate.numberToDate(itemRow) : ''
+                    }
+                 }else{
+                    return {                   
+                        [firstRow[index]]: itemRow ? itemRow : ''
+                        }
+                 }}
+                 
+                 )
 
             console.log(transactions.length);
             if(transactions.length>0){ 
