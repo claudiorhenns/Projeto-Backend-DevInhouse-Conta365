@@ -90,6 +90,8 @@ Para testar o endpoint POST das contas financeiras, é necessário enviar uma **
 
 https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/database.xlsx
 
+### Autor
+
 
 ![autor](https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/footer.jpg)
 
