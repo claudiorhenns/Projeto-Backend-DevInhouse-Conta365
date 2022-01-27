@@ -8,9 +8,10 @@ Este projeto visa colocar em prática conceitos de Criação de uma API e utiliz
 =================
    * [Features](#features)
    * [Pré-requisitos](#pré-requisitos)
-   * [Como Utilizar](#como-utilizar-(instalação))
+   * [Instalação](#instalação)
    * [Tabela descritiva dos endpoints de Usúarios](#tabela-descritiva-dos-endpoints-de-usúarios)
    * [Tabela descritiva dos endpoints das Contas Financeiras](#tabela-descritiva-dos-endpoints-das-contas-financeiras)
+   * [Observação](#observação)
    * [Autor](#autor)
    
 
@@ -41,7 +42,7 @@ Nos links abaixo você encotra os instalaveis para **_Node.js_** e **_VsCode_**:
 - https://code.visualstudio.com/
 
 
-## Como utilizar (Instalação)
+## Instalação
 
 1- Clone ou baixe o projeto do endereço:
 ~~~~
