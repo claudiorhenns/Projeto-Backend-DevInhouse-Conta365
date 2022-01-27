@@ -6,9 +6,9 @@ Este projeto visa colocar em prática conceitos de Criação de uma API e utiliz
 
 Tabela de conteúdos
 =================
-   * [Features](#Status)
-   * [Pré-requisitos](#tabela-de-conteudo)
-   * [Como Utilizar](#instalacao)
+   * [Features](#features)
+   * [Pré-requisitos](#pré-requisitos)
+   * [Como Utilizar](#como-utilizar)
    * [Tabela descritiva dos endpoints de Usúarios](#como-usar)
    * [ Tabela descritiva dos endpoints das Contas Financeiras](#testes)
    
