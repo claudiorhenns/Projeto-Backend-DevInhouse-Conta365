@@ -49,7 +49,7 @@ Nos links abaixo você encotra os instalaveis para **_Node.js_** e **_VsCode_**:
 https://github.com/claudiorhenns/Projeto-Backend-DevInhouse-Conta365.git
 ~~~~
 
-2- Como o projeto não contém a pasta **nodes_modules**, será necessário instalar as dependências. Faça isso executando no seu editor de código o comando:
+2- Como o projeto não contém a pasta **node_modules**, será necessário instalar as dependências. No seu editor de código, execute o comando:
 
 ~~~~
 npm install
