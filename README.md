@@ -84,6 +84,6 @@ A tabela abaixo exemplifica os Endpoints utilizados para listar, adicionar gasto
 | POST | v1/financial/:userId | userId como parâmetro da requisição e um arquivo com extensão **xlsx** importado no corpo da requisição|Acessa uma planilha com extensão xlsx e importa as transações financeiras para UM usúario informado no endpoint|
 |DELETE| v1/financial/:userId/:financialId | **userId** e **FinancialId** passados como parâmetros na requisição | Acessa uma conta financeira com base no Id do Usuário e **DELETA** a transação financeira com base no Id da transação|
 
-![autor](https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/header2.jpg)
+![autor](https://advertorial-pages.s3.us-west-1.amazonaws.com/listicle/footer.jpg)
 
 
