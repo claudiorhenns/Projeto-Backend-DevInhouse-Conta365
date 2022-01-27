@@ -16,7 +16,6 @@ Este projeto visa colocar em prática conceitos de Criação de uma API e utiliz
    
 
 
-### Status: Concluído
 
 ### Features
 
