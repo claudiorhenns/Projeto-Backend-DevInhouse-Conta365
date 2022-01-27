@@ -4,13 +4,14 @@
 Projeto Api Conta365, é um projeto acadêmic do curso DevInhouse do Senai-SC.
 Este projeto visa colocar em prática conceitos de Criação de uma API e utilização de endpoints.
 
-Tabela de conteúdos
+Índice de conteúdos
 =================
    * [Features](#features)
    * [Pré-requisitos](#pré-requisitos)
-   * [Como Utilizar](#como-utilizar)
-   * [Tabela descritiva dos endpoints de Usúarios](#como-usar)
-   * [ Tabela descritiva dos endpoints das Contas Financeiras](#testes)
+   * [Como Utilizar](#como-utilizar-(instalação))
+   * [Tabela descritiva dos endpoints de Usúarios](#tabela-descritiva-dos-endpoints-de-usúarios)
+   * [Tabela descritiva dos endpoints das Contas Financeiras](#tabela-descritiva-dos-endpoints-das-contas-financeiras)
+   * [Autor](#autor)
    
 
 
