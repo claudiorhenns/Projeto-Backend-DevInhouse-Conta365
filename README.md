@@ -35,10 +35,10 @@ Para testar esse projeto você vai precisar ter instalado na sua máquina o Node
 Além disso é bom ter um editor de código, eu utilizo o VsCode
 Nos links abaixo você encotra os instalaveis para **_Node.js_** e **_VsCode_**:
 
-~~~~
+
 https://nodejs.org/en/
 https://code.visualstudio.com/
-~~~~
+
 
 ## Como utilizar (Instalação)
 
@@ -47,13 +47,19 @@ https://code.visualstudio.com/
 https://github.com/claudiorhenns/Projeto-Backend-DevInhouse-Conta365.git
 ~~~~
 
-2- Inicie o servidor para testar a API com o comando:
+2- Como o projeto não contém a pasta **nodes_modules**, será necessário instalar as dependências. Faça isso executando no seu editor de código o comando:
+
+~~~~
+npm install
+~~~~
+
+3- Inicie o servidor para testar a API com o comando:
 
 ~~~
 npm start
 ~~~
 
-3- Você pode testar os endpoints através da interface do **swagger** no seguinte endereço:
+4- Você pode testar os endpoints através da interface do **swagger** no seguinte endereço:
 
 ~~~~
 http://localhost:4444/api-docs/#/
