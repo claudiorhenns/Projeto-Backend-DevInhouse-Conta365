@@ -36,7 +36,7 @@ Além disso é bom ter um editor de código, eu utilizo o VsCode
 Nos links abaixo você encotra os instalaveis para **_Node.js_** e **_VsCode_**:
 
 
-https://nodejs.org/en/__
+https://nodejs.org/en/\
 https://code.visualstudio.com/
 
 
