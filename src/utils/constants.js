@@ -3,7 +3,9 @@ const translate = {
     "age": "idade",
     "job": "trabalho",
     "state": "estado",
-    "email": "email"
+    "email": "email",
+    "date": "data",
+    "typeOfExpensive": "tipo de despesa"
 }
 
 module.exports = {

@@ -1,13 +1,1 @@
-[{
-    "id":1,"name":"Claudio Rhenns",
-    "email":"rhenns@gmail.com"},
-    
-    {"id":2,"name":"Davi",
-     "email":"davi@hotmail.com.br"},
-        
-     {"id":3,"name":"Jenifer",
-      "email":"jenifer@gmail.com"},
-            
-     {"id":4,"name":"Noah",
-      "email":"noah@gmail.com"}
-]
+[{"id":1,"name":"Claudio Rhenns","email":"rhenns@gmail.com"},{"id":2,"name":"Davi","email":"davi@hotmail.com.br"},{"id":3,"name":"Jenifer","email":"jenifer@gmail.com"},{"id":4,"name":"Noah","email":"noah@gmail.com"}]

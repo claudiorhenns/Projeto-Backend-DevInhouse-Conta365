@@ -1,7 +1,7 @@
-const { getData, createOrUpdateData, parseData } = require("../utils/functions")
+const { getData, createOrUpdate, parseData } = require("../utils/functions")
 const {translate} = require("../utils/constants");
 const useService = require ('../services/user.service');
-const axios = require('axios');
+
 
 module.exports={
     async index(req,res){
@@ -14,8 +14,7 @@ module.exports={
     async indexOne(req,res){
         // #swagger.tags = ['EndPoints for Users']
         // #swagger.description = "Acessa e retorna as informações de <b>UM</b> usúario pelo <b>ID</b>"
-
-
+    
         const { id }= req.params;
         
         try{
@@ -64,7 +63,7 @@ module.exports={
                 
             }
         ]
-        createOrUpdateData(createNewUser);
+        createOrUpdate(createNewUser);
         return res.status(200).send({message: "Usúario Adicionado"});
     },
 
@@ -111,8 +110,7 @@ module.exports={
             }
         } );
 
-        createOrUpdateData(userUpdateList);
-
+        createOrUpdate(userUpdateList);
         return res.status(200).send({message: "Dados atualizados no usúario "+id});
     },
 
@@ -131,8 +129,7 @@ module.exports={
 
         const removeOnlyByIUdUsers = users.filter((item)=> item.id != Number(id));
 
-        createOrUpdateData(removeOnlyByIUdUsers);
-
+        createOrUpdate(removeOnlyByIUdUsers);
         return res.status(200).send({message: "Usúario deletado com sucesso"});
     }
 

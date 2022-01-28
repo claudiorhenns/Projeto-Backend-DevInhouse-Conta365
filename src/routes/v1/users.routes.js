@@ -10,5 +10,4 @@ useRoutes.patch('/userUpdate/:id', userController.updateOne);
 useRoutes.delete('/userDelete/:id', userController.deleteOne);
 
 
-
 module.exports =  useRoutes;

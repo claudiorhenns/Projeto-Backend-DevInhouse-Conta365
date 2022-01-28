@@ -1,4 +1,4 @@
-const { getData, parseData2, parseData3, createOrUpdateData } = require("../utils/functions")
+const { parseData2, createOrUpdate, status, statusJson } = require("../utils/functions")
 const userService = require('../services/user.service');
 const financialService = require('../services/financial.service');
 const xlsxPopulate = require ('xlsx-populate');
@@ -8,7 +8,7 @@ module.exports = {
     async index(req, res){
        // #swagger.tags = ['EndPoints for FinancialAccounts']
        // #swagger.description = "Acessa e retorna as informações de <b>TODAS</b> as contas financeiras do banco"
-       const response =  await financialService.resolvePromissesForCompanies();      
+       const response =  await financialService.resolvePromissesForFinancialAccounts();   
        return res.status(200).send({message: response})
     },
 
@@ -19,15 +19,14 @@ module.exports = {
     
            try{
 
-            const financial =  await financialService.resolvePromissesForCompanies(userId); 
+            const financial =  await financialService.resolvePromissesForFinancialAccounts(userId); 
            
             if(!financial) throw new Error('Não existem conta cadastrada para esse ID');
-
-            return res.status(200).json({financial: financial});
-           
+ 
+            return res.status(200).json({financial: financial});           
     
             }catch (error){
-                 return res.status(400).json({error: error.message});
+                return res.status(400).json({error: error.message});
              }
        
     },
@@ -46,8 +45,8 @@ module.exports = {
         } */
 
         const { userId } = req.params;
-        const financialAccount = await financialService.resolvePromissesForCompanies(userId);   
-        const fullList = await financialService.resolvePromissesForCompanies();  
+        const financialAccount = await financialService.resolvePromissesForFinancialAccounts(userId);   
+        const fullList = await financialService.resolvePromissesForFinancialAccounts();  
 
         if(!financialAccount){
             return res.status(400).send({message: "Conta para o usuario com id "+userId+" não encontrada"})
@@ -57,8 +56,6 @@ module.exports = {
             return item;           
         });        
         
-        
-
         const xlsxlBuffer = req.file.buffer;
         const xlsxData = await xlsxPopulate.fromDataAsync(xlsxlBuffer);
 
@@ -79,16 +76,10 @@ module.exports = {
         filterRows.map((row)=>{
             const result = row.map((itemRow, index)=>{
                 if(firstRow[index] == "date"){
-                return {                   
-                    [firstRow[index]]: itemRow ? xlsxPopulate.numberToDate(itemRow) : ''
-                    }
-                 }else{
-                    return {                   
-                        [firstRow[index]]: itemRow ? itemRow : ''
-                        }
-                 }}
-                 
-                 )
+                    return {  [firstRow[index]]: itemRow ? xlsxPopulate.numberToDate(itemRow) : '' }
+                }else{
+                    return { [firstRow[index]]: itemRow ? itemRow : ''  }
+                }})
 
             console.log(transactions.length);
             if(transactions.length>0){ 
@@ -101,13 +92,9 @@ module.exports = {
                 transactions.push(valuesCell);
                 console.log("1");
             }
-            
-      
         });
-           
 
             const newData = parseData2 (transactions,financialAccount);
-
             const numberAccount = financialAccount.id;
 
             const newUpdatedList = fullList.map((item)=>{
@@ -118,11 +105,9 @@ module.exports = {
                  }
             });
        
-            createOrUpdateData(newUpdatedList,"fake-financial.json");
+            createOrUpdate(newUpdatedList,"fake-financial.json");
 
-           
-
-        return res.status(200).send({message: "Transações adicionadas com sucesso"});
+            return res.status(200).send({message: "Transações adicionadas com sucesso"});
     },
 
     async deleteFinancialdata(req, res){
@@ -130,7 +115,7 @@ module.exports = {
        // #swagger.description = "Acessa uma conta financeira com base no <b>Id do Usuário</b> e <b>DELETA</b> a transação financeira com base no <b>Id da transação</b>"
    
         const { userId, financialId } = req.params;
-        const financialAccount = await financialService.resolvePromissesForCompanies(userId);
+        const financialAccount = await financialService.resolvePromissesForFinancialAccounts(userId);
 
         
         if(!financialAccount){
@@ -157,19 +142,17 @@ module.exports = {
 
         const newData = parseData2 (financialData,financialAccount);
       
-        const fullList = await financialService.resolvePromissesForCompanies();  
-       // const listWithoutUpdatedItem = fullList.filter((item)=> item.id != Number(numberAccount) );
-       //const newUpdatedList = [...listWithoutUpdatedItem,newData];
-         
-       const newUpdatedList = fullList.map((item)=>{
+        const fullList = await financialService.resolvePromissesForFinancialAccounts();  
+               
+        const newUpdatedList = fullList.map((item)=>{
             if(item.id ===Number(numberAccount)){
                 return newData;
             }else{
                 return item;
             }
-       });
+        });
        
-      createOrUpdateData(newUpdatedList,"fake-financial.json");
+      createOrUpdate(newUpdatedList,"fake-financial.json");
       return res.status(200).send({message: "Transação deletada com sucesso"});
     }
 }

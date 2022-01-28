@@ -2,7 +2,7 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'Projeto-03',
+    title: 'Projeto Backend DevInhouse - Conta365',
     description: 'Projeto avaliativo de API com node.js (Curso DevInHouse)',
   },
   host: 'localhost:4444',

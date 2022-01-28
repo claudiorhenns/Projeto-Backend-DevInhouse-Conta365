@@ -1,6 +1,5 @@
 const { json } = require('express/lib/response');
 const fileSystem = require('fs');
-const { userInfo } = require('os');
 
 
 function getData(fileName = 'fake-users.json'){
@@ -8,7 +7,7 @@ function getData(fileName = 'fake-users.json'){
     return result;
 }
 
-function createOrUpdateData(data, filename = 'fake-users.json'){
+function createOrUpdate(data, filename = 'fake-users.json'){
     fileSystem.writeFileSync('src/database/'+filename, JSON.stringify(data));
 }
 
@@ -16,8 +15,7 @@ function parseData(updateItem, oldItem){
     return{
         name: updateItem.name ? updateItem.name : oldItem.name,
         email: updateItem.email ? updateItem.email : oldItem.email
-      
-        /* returm {...oldItem, ...updateItem} */
+    
     }
 }
 
@@ -25,12 +23,20 @@ function parseData2(financialData, oldItem){
         return {...oldItem, financialData} ;    
 }
 
+function status(res,code,response){
+   return res.status(code).send(response)
+}
+
+function statusJson(res,code,response){
+   return res.status(code).json(response);
+}
 
 
 module.exports ={
     getData,
-    createOrUpdateData,
+    createOrUpdate,
     parseData,
-    parseData2
-
+    parseData2,
+    status,
+    statusJson
 }
