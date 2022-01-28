@@ -33,7 +33,7 @@ Este projeto visa colocar em prática conceitos de Criação de uma API e utiliz
 ## Pré-requisitos
 
 Para testar esse projeto você vai precisar ter instalado na sua máquina o Node.js.
-Além disso é bom ter um editor de código, eu utilizo o VsCode
+Além disso é bom ter um editor de código, eu utilizo o VsCode.
 Nos links abaixo você encotra os instalaveis para **_Node.js_** e **_VsCode_**:
 
 
